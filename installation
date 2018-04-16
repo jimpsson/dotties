@@ -1,0 +1,70 @@
+# this lists installed packages, put this 
+# somewhere safe before nuking your system
+pacman -Qqe > pkglist.txt
+
+# do this if you have foreign packages
+pacman -S $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
+pacman -Rsu $(comm -23 <(pacman -Qq | sort) <(sort pkglist.txt))
+
+# partitioning and making filesystems
+cfdisk /dev/sda
+mkfs.vfat -F32 /dev/sda1
+mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda3
+
+# mounting partitions
+mount /dev/sda2 /mnt
+mkdir -p /mnt/{boot,home}
+mount /dev/sda1 /mnt/boot
+mount /dev/sda3 /mnt/home
+
+# generate fstab
+gensfstab -U -p /mnt >> /mnt/etc/fstab
+
+# chroot your system
+pacstrap /mnt base base-devel
+arch-chroot /mnt
+
+# install packages
+pacman -S - < pkglist.txt
+
+# hostname
+echo "hostname" > /etc/hostname
+nano /etc/hosts
+
+# /etc/hosts
+#
+#127.0.0.1   localhost.localdomain   localhost
+#::1         localhost.localdomain   localhost
+#127.0.0.1   hostname.localdomain    hostname
+
+# set timezone and generate etc/adjtime
+ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime
+hwclock --systohc
+
+# vconsole
+echo "KEYMAP=fi" > /etc/vconsole.conf
+
+# set your locale
+sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen
+locale-gen
+
+# users and passwords
+passwd
+useradd -m -g users -G wheel -s /bin/zsh shn
+passwd shn
+
+# edit sudoers file
+EDITOR=nano visudo
+
+# use EFISTUB instead so there's no going to be
+# any bootloaders involved which speeds up starting
+
+efibootmgr --disk /dev/sda --part 1 --create --gpt --label "Arch Linux" \
+--loader '/vmlinuz-linux' --unicode 'root=/dev/sda2 rw quiet acpi_osi="!Windows 2012" \
+initrd=/intel-ucode.img initrd=/initramfs-linux.img'
+
+# Exit chroot and unmount your system
+exit
+umount -R /mnt
+reboot

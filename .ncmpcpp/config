@@ -1,0 +1,62 @@
+#                               ██████          ██████  ██████ 
+#  ███████   █████  ██████████ ░██░░░██  █████ ░██░░░██░██░░░██
+# ░░██░░░██ ██░░░██░░██░░██░░██░██  ░██ ██░░░██░██  ░██░██  ░██
+#  ░██  ░██░██  ░░  ░██ ░██ ░██░██████ ░██  ░░ ░██████ ░██████ 
+#  ░██  ░██░██   ██ ░██ ░██ ░██░██░░░  ░██   ██░██░░░  ░██░░░  
+#  ███  ░██░░█████  ███ ░██ ░██░██     ░░█████ ░██     ░██     
+# ░░░   ░░  ░░░░░  ░░░  ░░  ░░ ░░       ░░░░░  ░░      ░░  
+# configuration made with love :3
+
+# mpd
+mpd_host = "127.0.0.1"
+mpd_port = "6600"
+mpd_music_dir = "/mnt/oppai/music/"
+
+# Colors
+color1 = "black"
+color2 = "black"
+statusbar_color = "black"
+progressbar_color = "black"
+progressbar_elapsed_color = "black"
+current_item_prefix = "$(red)$r"
+current_item_suffix = "$/r$(end)"
+
+# Settings
+autocenter_mode = "yes"
+header_visibility = "no"
+statusbar_visibility = "yes"
+cyclic_scrolling = "yes"
+titles_visibility = "no"
+display_bitrate = "yes"
+
+# Playlist
+progressbar_look = "░█ "
+playlist_display_mode = "classic"
+browser_display_mode = "classic"
+song_list_format = " {$2%a $1≠ $8}{%t} $R$1%l"
+song_status_format = "$4%t $1by $3%a $1from $9%b$1"
+song_columns_list_format = "(5)[]{} (22)[red]{a} (20)[white]{t|f} (49)[blue]{b} (4)[red]{l}"
+
+# Progressbars to use.
+# This section works as
+# a clipboard so no need
+# to hunt these down from
+# the web.
+
+#progressbar_look = "░█ "
+#progressbar_look = "=>"
+#progressbar_look = "─- "
+#progressbar_look = "▒▒░"
+#progressbar_look = "┅┅┄"
+#progressbar_look = "─⊙┄"
+#progressbar_look = "─➞─"
+#progressbar_look = "─┅─"
+#progressbar_look = "▪▪▪"
+#progressbar_look = "▪▪▫"
+#progressbar_look = "───"
+#progressbar_look = "▁▁▁"
+#progressbar_look = "‒‒‒"
+#progressbar_look = "■◣ "
+#progressbar_look = "◈◆◇"
+
+# vim: syntax=config

@@ -1,0 +1,30 @@
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+alias m='makepkg -csi'
+alias po='poweroff'
+alias rm='rm -v'
+alias mv='mv -v'
+alias cp='cp -vr'
+alias c='clear'
+alias e='exit'
+alias grep='grep --color=auto'
+alias dir='dir --color=auto'
+alias ls='ls --color=auto'
+alias x='startx'
+alias bm='bashmount'
+alias ncp='ncmpcpp'
+alias amix='alsamixer'
+alias hc="herbstclient"
+alias wee='weechat-curses'
+alias xu='sudo xbps-install -Su'
+alias xi='sudo xbps-install -S'
+alias xs='xbps-query -R'
+alias svorak='setxkbmap -layout se -variant dvorak; xmodmap ~/.xmodmap; xset r rate 350 45'
+alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""'s
+alias np="mpc current -f '%title% by %artist% from %album%' | xcmenu -ci"
+alias dnp="deadbeef --nowplaying '%t by %a from %b' | xcmenu -ci"
+alias jwine="LANG=ja_JP.UTF-8 wine"
