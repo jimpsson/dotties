@@ -1,0 +1,58 @@
+#                  ██      ██          ██
+#                 ░██     ░██         ░██
+#   ██████ ██   ██░██     ░██  ██     ░██
+#  ██░░░░ ░░██ ██ ░██████ ░██ ██   ██████
+# ░░█████  ░░███  ░██░░░██░████   ██░░░██
+#  ░░░░░██  ██░██ ░██  ░██░██░██ ░██  ░██
+#  ██████  ██ ░░██░██  ░██░██░░██░░██████
+# ░░░░░░  ░░   ░░ ░░   ░░ ░░  ░░  ░░░░░░ 
+
+# close windows
+alt + shift + c
+   herbstclient close    
+
+# kill panel properly and quit
+alt + shift + q
+   herbstclient close; pkill lemonbar; pkill panel
+
+# handle panels and reloading properly
+alt + shift + r
+   herbstclient reload
+
+# window splitting
+alt + {w,q,e}
+   herbstclient split {bottom 0.5,right 0.5, explode}
+
+# focus
+
+alt + period
+   herbstclient cycle_monitor
+    
+alt  + {Tab,Shift+Tab}
+   herbstclient {cycle_all +1,cycle_all -1}
+
+alt + {Left,Down,Up,Right}
+   herbstclient {focus left,focus down,focus up,focus right}
+
+ctrl + odiaeresis
+   wselect.sh
+
+# layouting
+alt + {r,shift+Tab,shift+f,shift+m,shift+p}
+   herbstclient {remove,cycle_layout 1,floating toggle, fullscreen toggle, pseudotile toggle}
+    
+# moving clients
+alt + shift + {Left,Down,Up,Right}
+   herbstclient shift {left,down,up,right}
+
+# resizing frames
+alt + control + {Left,Down,Up,Right}
+   herbstclient resize {left +0.01,down +0.01,up +0.01,right +0.01}
+    
+# shift client to specified monitor
+alt + shift + {comma,period}
+   herbstclient shift_to_monitor {1,0}
+    
+# swap
+alt + m
+   herbstclient spawn swap.sh auto

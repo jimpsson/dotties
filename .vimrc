@@ -18,29 +18,6 @@ filetype off		    " required
 syntax on		    " enable syntax colors
 colorscheme barrage         " colorscheme
 
-" Plugins
-call plug#begin()
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-commentary'
-call plug#end()
-
-" lightline settings
-  let g:lightline = {
-    \ 'colorscheme': 'sourcerer',
-    \ 'active': {
-    \   'left': [ [ 'filename' ],
-    \             [ 'readonly', 'fugitive' ] ],
-    \   'right': [ [ 'percent', 'lineinfo' ],
-    \              [ 'fileencoding', 'filetype' ],
-    \              [ 'fileformat', 'syntastic' ] ]
-    \ },
-    \ 'separator': { 'left': '▓▒░', 'right': '░▒▓' },
-    \ 'subseparator': { 'left': '▒', 'right': '░' }
-    \ }
-
 " Bindings
 
 " Bubble single lines
@@ -66,8 +43,8 @@ set sidescrolloff=5         " 5 character offset from left-right
 set nowrap                  " don't wrap lines
 set virtualedit=all         " enable virtualedit (visual block)
 set expandtab               " spaces not tabs
-set softtabstop=3           " indents
-set shiftwidth=3            " more indents
+set softtabstop=2           " indents
+set shiftwidth=2            " more indents
 set number                  " show line numbers
 set noswapfile              " no swap files
 set updatecount=0           " we don't use swap files
@@ -82,5 +59,6 @@ set modeline                " use modelines
 set ttimeout                " key combination timeout
 set ttimeoutlen=50          " lower statusline timeout
 set autoindent              " indent to last identation
+set listchars=tab:▏\ ,trail:~,eol:¬ " show unbroken lines
 
 " vim: set ts=8 sw=3 tw=78 :

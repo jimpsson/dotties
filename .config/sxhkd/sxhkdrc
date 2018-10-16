@@ -1,0 +1,93 @@
+#                  ██      ██          ██
+#                 ░██     ░██         ░██
+#   ██████ ██   ██░██     ░██  ██     ░██
+#  ██░░░░ ░░██ ██ ░██████ ░██ ██   ██████
+# ░░█████  ░░███  ░██░░░██░████   ██░░░██
+#  ░░░░░██  ██░██ ░██  ░██░██░██ ░██  ░██
+#  ██████  ██ ░░██░██  ░██░██░░██░░██████
+# ░░░░░░  ░░   ░░ ░░   ░░ ░░  ░░  ░░░░░░ 
+
+# Sxhkd 'universal' configuration.
+
+# Reload sxhkd config
+alt + shift + z
+  pkill -USR1 -x sxhkd; notify-send "sxhkd settings reloaded"
+
+# Toggle redshift
+control + apostrophe
+  pkill -USR1 redshift; notify-send "redshift toggled"
+
+# Display off
+mod5 + Escape
+   display.sh off
+
+# Take a screenshot
+shift + F12
+  maim -u $(date +%F_%H%M).png
+
+# Web, fm, img
+alt + {1,2,3}
+  {qutebrowser,spacefm,gimp}
+    
+alt + {odiaeresis,adiaeresis}
+  {xcmenuctrl,lolimpdnu}
+    
+# Terminal
+alt + shift + Return
+  termite
+   
+# Menu
+alt + p
+  dmenu_run -i
+
+# Music toggle
+control + {section,Escape}
+  {mpc toggle,deadbeef --toggle-pause}
+
+# ofuro
+mod5 + section
+  ~/.bin/ofuro
+
+# TAS
+alt + F12
+  cd ~/TAS/fceux-2.2.2 && wine fceux.exe
+
+# Undertale
+alt + F5
+  cd ~/games/PC/Undertale && wine UNDERTALE.exe
+
+# Screencast/streaming
+alt + ctrl + x
+  pkill -f 'x11grab'
+
+alt + ctrl + a
+  screencast
+   
+alt + ctrl + x
+  pkill -f 'x11grab'
+  
+# Raise volume
+ctrl + shift + dead_acute
+  amixer -c 0 -q set PCM 2%+
+
+# Lower volume
+ctrl + shift + plus
+  amixer -c 0 -q set PCM 2%-
+
+# tmuxwm specific bindings
+
+# spawn a new window
+#ctrl + shift + space
+#  tmux new-window
+
+# select a window
+#ctrl + {1,2,3,4,5,6,7,8,9}
+#  tmux select-window -t {1,2,3,4,5,6,7,9}
+
+# splits
+#alt + {h,v}
+#  tmux splitw {-h,-v}
+
+# cycle trough panes
+#alt + ctrl + {Up,Down,Right,Left}
+#  tmux select-pane {-U,-D,-L,-R}
