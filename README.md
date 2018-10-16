@@ -1,1 +1,1 @@
-![bundled shot](https://comfy.moe/ryeuom.png)
+![bundled shot](https://i.imgur.com/dDTRs9R.png)
